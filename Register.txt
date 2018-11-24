@@ -1,0 +1,22 @@
+Type of Registers
+
+There are 14 type of different Registers. All register are there for different purpose.
+
+A. General purpose Register:
+	1. AX: Accumulator Register: Commonly used for storing the arithmetic and logical result store.
+	2. BX (Base Address Register):  Base Register is the register, hold the address of the base storage location from where the data were stored continuously. 
+	3. CX (Count Register) : Used as a loop counter. While shifting and rotating bits.
+	4. DX (Data Register): Used in I/O operations as well as preferred in division and multiplication while execution of large value.
+
+B. Segment Registers:
+	1. CS (Code Segment): we write the instruction that need to be executed. It contains all the instruction.
+	2. DS (Data Segment) It store the variable used for coding.
+	3. SS (Stack Segment): To implement subroutine calls. It stores the address of subroutine and procedure.
+	4. ES (Extra Segment) : If a program needs to access second data segment, it can use the extra segment register.
+
+C. Pointer Register:
+	1. Stack Pointer (SP) : Used in combination with stack segment (SS) as SS:SP for accessing the stack segment. It contains the top address of the stack.
+	2. Base Pointer (PP) : Contains base address of the stack. Used to access the data on a stack. It is combined with stack segment (SS:BP).
+	3. Instruction Pointer (IP): Also called index pointer, store the offset address of next instruction to be executed. It is combined with code segment. (CS: IP)
+
+    
