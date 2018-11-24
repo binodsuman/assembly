@@ -1,0 +1,68 @@
+
+RAM has four segment:
+Data Segment
+Code Segment
+Stack Segment
+Extra Segment (If Data Segment is not enough)
+
+Now how much space you need for your assembly program:
+
+tiny code + Data <= 64 KB
+small code<= 64 KB, Data <= 64 KB
+medium code = Any Size, Data <= 64 KB
+compact code <= 64 KB , Data = any size
+large code = any size, data= any size
+
+.model small <- how much RAM we want, Model Directive  <- Specifies the total amount of memory the program would take.
+.stack 100h <- Allocate 100h for Stack Segment. Specifies the storage for stack
+.data <- Data Segment Direcive
+; variable define here
+.code <- Code segment directive
+main proc ; we can write many procedure to put our code
+
+Not permitted movement
+mov 'á', 'b'' ; can not move one character to another, need register for movement
+mov 3, 8; same, we can not assign one number to another number, need register
+mov dl, AX ; can not as AX is of 16 bit and dl is only for 8 bit register
+
+Permitted movement
+mov dl, á''
+mov dx, ax
+mov dl, 8
+mov dh, al
+
+How to print character on console
+mov ah, 2
+int 21h ; interrupt is required if you switch from processing to printing or vice versa
+
+mov ah, x
+x value could be
+1 for Input a character with echo
+2 for output/print a single character
+8 for Input a character without echo
+9 for print collection of character
+4ch for exit
+
+Interrupt:
+stop the current program and allow microprocessor to access hardware to take input or give output.
+int 21h for Interrupt for text handling
+int 20h for interrupt for video/graphics handling
+
+For Input
+mov ah, 1
+int 21h
+
+For output
+mov ah, 2
+int 21h
+
+General data type for assembly language
+db = define byte = 8 bit
+dw = define word = 16 bit
+dd = define double word = 32 bit
+dq = define quad = 64 bit
+bcd = binary coded decimal (Packed BCD and Unpacked BCD)
+
+sum db 100 ; int sum = 100
+sum db ?
+
